@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeAndArt</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <meta name="theme-color" content="#fce4ec" />
+</head>
+<body>
+
+  <!-- Pantalla de bienvenida -->
+  <!-- Pantalla de bienvenida -->
+<div id="welcome-screen">
+  <h1>For Krishell 💌</h1>
+  <p>This moment is special... I made it for you</p>
+  <button onclick="enterApp()">Enter LifeAndArt</button>
+</div>
+
+<!-- Contenedor principal -->
+<div class="container" id="app" style="display: none;">
+  <h1>🎨 LifeAndArt</h1>
+  <p class="subtitle">Your moments matter</p>
+
+  <!-- Mensaje especial dentro de la app -->
+   <div class="special-message">
+    💌 Krishell, every moment you save here is just for you 💖
+  </div>
+
+
+  <!-- Formulario recordatorio -->
+  <div class="card">
+    <input type="text" id="title" placeholder="Moment title..." />
+    <input type="datetime-local" id="datetime" />
+    <button onclick="saveReminder()">Save Moment</button>
+  </div>
+
+  <div id="reminders"></div>
+</div>
+
+  <!-- Contenedor principal de la app -->
+  <div class="container" id="app" style="display: none;">
+    <h1>🎨 LifeAndArt</h1>
+    <p class="subtitle">Your moments matter</p>
+
+    <!-- Mensaje especial dentro de la app -->
+    <div class="special-message">
+      💌 Krishell, cada momento que guardes aquí es solo para ti 💖
+    </div>
+
+    <!-- Formulario recordatorio -->
+      <div class="card">
+    <input type="text" id="title" placeholder="Moment title..." />
+    <input type="datetime-local" id="datetime" />
+    <button onclick="saveReminder()">Save Moment</button>
+  </div>
+
+  <div id="reminders"></div>
+</div>
+
+  <!-- Confetti -->
+   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

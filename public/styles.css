@@ -1,0 +1,148 @@
+/* Background animado */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #fce4ec, #e0bbff, #ffe4b2);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+/* Contenedores centrados */
+#welcome-screen, .container {
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+}
+
+/* Pantalla de bienvenida */
+#welcome-screen {
+  background: rgba(255,255,255,0.9);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  animation: fadeIn 1s ease forwards;
+}
+
+#welcome-screen h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #f472b6;
+}
+
+#welcome-screen p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+#welcome-screen button {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+#welcome-screen button:hover {
+  transform: scale(1.05);
+}
+
+/* Título de la app principal */
+.container h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* Mensaje especial dentro de la app */
+.special-message {
+  background: rgba(255, 228, 250, 0.7);
+  padding: 12px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2rem;
+  color: #ec4899;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Card formulario */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  margin: 20px auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Inputs y botón */
+.card input, .card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+/* Botón */
+.card button {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.card button:hover {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  transform: scale(1.05);
+}
+
+/* Recordatorios */
+.reminder-card {
+  background: rgba(255,255,255,0.85);
+  margin-top: 15px;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  backdrop-filter: blur(5px);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+.reminder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
