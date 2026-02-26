@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderReminders();
     requestNotificationPermission();
   };
-  
+
   // Registrar service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
@@ -22,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Firebase config
   const firebaseConfig = {
-    apiKey: "AIzaSyB2cS9leYKwzWJdnewcTPTejmc7Fg8T21c",
-  authDomain: "lifeandart-f8c02.firebaseapp.com",
-  projectId: "lifeandart-f8c02",
-  storageBucket: "lifeandart-f8c02.firebasestorage.app",
-  messagingSenderId: "312896657787",
-  appId: "1:312896657787:web:deac98bf09b35ce50145de"
+    apiKey: "TU_API_KEY",
+    authDomain: "TU_PROJECT.firebaseapp.com",
+    projectId: "TU_PROJECT",
+    storageBucket: "TU_PROJECT.appspot.com",
+    messagingSenderId: "TU_SENDER_ID",
+    appId: "TU_APP_ID"
   };
 
   firebase.initializeApp(firebaseConfig);
