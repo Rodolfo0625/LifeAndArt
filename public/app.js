@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestNotificationPermission();
   };
 
+  
   // Registrar service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
