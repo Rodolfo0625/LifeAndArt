@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     welcomeScreen.style.display = "none";
     appDiv.style.display = "block";
     renderReminders();
-    requestNotificationPermission();
   };
 
   // Registrar service worker
@@ -20,39 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.log("Service Worker failed ❌", err));
   }
 
-  // Firebase config
-  const firebaseConfig = {
- apiKey: "AIzaSyB2cS9leYKwzWJdnewcTPTejmc7Fg8T21c",
-  authDomain: "lifeandart-f8c02.firebaseapp.com",
-  projectId: "lifeandart-f8c02",
-  storageBucket: "lifeandart-f8c02.firebasestorage.app",
-  messagingSenderId: "312896657787",
-  appId: "1:312896657787:web:deac98bf09b35ce50145de"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const messaging = firebase.messaging();
-
-  // Solicitar permiso notificaciones + obtener token FCM
-  function requestNotificationPermission() {
-    if ('Notification' in window) {
-      Notification.requestPermission().then(permission => {
-        if (permission === "granted") {
-          messaging.getToken({ vapidKey: "TU_VAPID_KEY" })
-            .then((token) => console.log("FCM Token:", token))
-            .catch(err => console.log("FCM token error:", err));
-        } else {
-          console.log("Notifications denied ❌");
-        }
-      });
-    }
-  }
-
   // Guardar recordatorio
   window.saveReminder = function() {
     const titleInput = document.getElementById("title");
     const datetimeInput = document.getElementById("datetime");
-    const title = titleInput.value;
+    const title = titleInput.value.trim();
     const datetime = datetimeInput.value;
 
     if (!title || !datetime) return alert("Please fill in all fields!");
@@ -72,9 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Notificación local
   function scheduleNotification(reminder) {
-    if (!("Notification" in window) || Notification.permission !== "granted") return;
+    if (!("Notification" in window)) return;
+
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission();
+    }
+
     const delay = new Date(reminder.datetime).getTime() - Date.now();
     if (delay <= 0) return;
+
     setTimeout(() => {
       new Notification("LifeAndArt Reminder 💌", {
         body: reminder.title,
@@ -114,7 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Confetti
   function launchConfetti() {
-    confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+    if (typeof confetti === "function") {
+      confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+    }
   }
 
   // Programar notificaciones de recordatorios guardados al cargar
