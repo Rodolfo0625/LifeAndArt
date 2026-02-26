@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderReminders();
     requestNotificationPermission();
   };
-
   
   // Registrar service worker
   if ('serviceWorker' in navigator) {
